@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vector-mini"
+version = "0.1.0"
+description = "Safety-first closed-loop motion controller testbed for wearable robotics"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Josh Jaskolka"}]
+keywords = ["robotics", "embedded-systems", "control-systems", "wearable-robotics", "safety"]
+
+[project.scripts]
+vector-mini = "vector_mini.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
