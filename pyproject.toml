@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vector-mini"
-version = "0.1.0"
+version = "0.1.1"
 description = "Safety-first closed-loop motion controller testbed for wearable robotics"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -14,10 +14,10 @@ keywords = ["robotics", "embedded-systems", "control-systems", "wearable-robotic
 
 [project.scripts]
 vector-mini = "vector_mini.cli:main"
+vector-mini-rehab = "vector_mini.rehab_cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
-

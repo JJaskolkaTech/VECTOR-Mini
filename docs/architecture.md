@@ -25,3 +25,19 @@ The software-in-the-loop model executes at 50 Hz. Each cycle:
 
 The architecture deliberately keeps the safety gate outside the controller. A controller bug therefore does not automatically become actuator authority.
 
+## Rehabilitation-intent research loop
+
+The v0.1.1 simulation preserves explicit subsystem ownership:
+
+| Subsystem | Responsibility |
+| --- | --- |
+| SYNAPSE | Acquire and condition a target-muscle sEMG observation; report signal and virtual-electrode quality |
+| VECTOR | Compare the observation with a personal calibration, estimate intent confidence, and calculate a correction request |
+| Safety gate | Independently qualify confidence, contact, placement, duration, and E-stop state; bound or zero every output |
+| Virtual NMES/FES | Model a normalized stimulation contribution without hardware or clinical parameters |
+| KINETIC | Model a separate bounded mechanical-assistance contribution |
+| Finger model | Convert voluntary and assisted drive into observable position feedback |
+
+Neither SYNAPSE sensing nor VECTOR interpretation directly owns actuator authority. The two output channels share a fail-closed gate, but remain separately observable in telemetry.
+
+The model intentionally evaluates correction at the movement layer. It never rewrites the impaired sEMG trace to resemble the reference trace and therefore does not imply that the biological signal or a damaged nerve has been repaired.
