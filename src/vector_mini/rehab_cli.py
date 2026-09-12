@@ -68,11 +68,11 @@ def format_report(rows: list[RehabSample]) -> str:
     final = rows[-1]
     ratio = summary.impaired_peak_envelope / summary.reference_peak_envelope
     return (
-        "VECTOR MINI — SYNTHETIC REHABILITATION INTENT LAB\n"
-        "SIMULATION ONLY · NOT PATIENT DATA · NO HARDWARE OUTPUT\n\n"
+        "VECTOR MINI — THE SIGNAL BEFORE MOTION\n"
+        "COMPUTATIONAL MODEL · PROPOSED ARCHITECTURE · VIRTUAL FINGER RESPONSE\n\n"
         "SYNAPSE / SENSING\n"
         f"  Reference envelope peak:      {summary.reference_peak_envelope:6.3f} norm\n"
-        f"  Impaired-pattern peak:        {summary.impaired_peak_envelope:6.3f} norm "
+        f"  Reduced-recruitment peak:     {summary.impaired_peak_envelope:6.3f} norm "
         f"({ratio:4.0%} of reference)\n"
         f"  Virtual electrode contact:    {final.electrode_contact_quality:6.1%}\n"
         f"  Virtual placement alignment:  {final.placement_alignment:6.1%}\n\n"
@@ -86,8 +86,8 @@ def format_report(rows: list[RehabSample]) -> str:
         f"  Hybrid-assisted extension:    {summary.assisted_peak_deg:6.2f} deg\n"
         f"  Unassisted tracking RMSE:     {summary.unassisted_rmse_deg:6.2f} deg\n"
         f"  Assisted tracking RMSE:       {summary.assisted_rmse_deg:6.2f} deg\n"
-        f"  Simulated error reduction:    {summary.tracking_error_reduction_pct:6.1f}%\n\n"
-        "Dose and placement values are normalized software variables, not clinical settings."
+        f"  Modeled tracking improvement: {summary.tracking_error_reduction_pct:6.1f}%\n\n"
+        "Evidence stage: synthetic sEMG, normalized commands, and a virtual movement model."
     )
 
 

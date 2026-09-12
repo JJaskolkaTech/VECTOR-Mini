@@ -128,13 +128,13 @@ def render(rows: list[dict[str, str]]) -> str:
   .intent-marker {{ stroke:#58e0a4; stroke-width:1.5; stroke-dasharray:5 5; opacity:.8 }}
   .arrow {{ stroke:#526887; stroke-width:2; fill:none }}
   .ok {{ fill:#58e0a4; font:700 12px system-ui,sans-serif }}
-  .warning {{ fill:#ffcf6e; font:700 12px system-ui,sans-serif }}
+  .evidence {{ fill:#8fb7ff; font:600 12px system-ui,sans-serif; letter-spacing:.35px }}
 </style>
 <rect width="100%" height="100%" class="bg"/>
 <rect x="24" y="20" width="1192" height="118" rx="18" fill="url(#header)" stroke="#2c3b5c"/>
-<text x="54" y="58" class="title">VECTOR MINI — REHABILITATION INTENT LAB</text>
-<text x="54" y="83" class="subtitle">Illustrative software-in-the-loop signals · personalized intent detection · virtual stimulation + KINETIC assistance</text>
-<text x="54" y="112" class="warning">SYNTHETIC DATA · NORMALIZED DOSE · NO HUMAN STIMULATION · NOT A MEDICAL DEVICE</text>
+<text x="54" y="58" class="title">VECTOR MINI — THE SIGNAL BEFORE MOTION</text>
+<text x="54" y="83" class="subtitle">A computational model of the proposed SYNAPSE → VECTOR → KINETIC rehabilitation loop</text>
+<text x="54" y="112" class="evidence">SOFTWARE-IN-THE-LOOP · SYNTHETIC sEMG · NORMALIZED COMMANDS · VIRTUAL FINGER RESPONSE</text>
 
 <rect x="54" y="158" width="252" height="62" rx="12" class="card"/>
 <text x="72" y="181" class="stage">SYNAPSE</text><text x="72" y="204" class="stage2">Acquire + condition sEMG</text>
@@ -157,7 +157,7 @@ def render(rows: list[dict[str, str]]) -> str:
 <polyline points="{polyline(rows, 'reference_emg_norm', signal_top, signal_height, -1.0, 1.0, 2)}" class="reference"/>
 <polyline points="{polyline(rows, 'impaired_emg_norm', signal_top, signal_height, -1.0, 1.0, 2)}" class="impaired"/>
 <line x1="810" y1="251" x2="842" y2="251" class="reference"/><text x="850" y="255" class="legend">Reference voluntary pattern</text>
-<line x1="1018" y1="251" x2="1050" y2="251" class="impaired"/><text x="1058" y="255" class="legend">Impaired pattern</text>
+<line x1="1018" y1="251" x2="1050" y2="251" class="impaired"/><text x="1058" y="255" class="legend">Reduced-recruitment model</text>
 
 <rect x="24" y="462" width="1192" height="222" rx="16" class="panel"/>
 <text x="54" y="492" class="section">2 · VECTOR INTERPRETATION + NORMALIZED OUTPUT COMMANDS</text>
@@ -175,7 +175,7 @@ def render(rows: list[dict[str, str]]) -> str:
 <line x1="1030" y1="480" x2="1062" y2="480" class="kinetic"/><text x="1070" y="484" class="legend">KINETIC command</text>
 
 <rect x="24" y="717" width="1192" height="222" rx="16" class="panel"/>
-<text x="54" y="747" class="section">3 · VIRTUAL FINGER EXTENSION — MOVEMENT OUTCOME CORRECTION</text>
+<text x="54" y="747" class="section">3 · VIRTUAL FINGER EXTENSION — ASSISTED MOVEMENT RESPONSE</text>
 {chart_grid(motion_top, motion_height, [(0.0, "0°"), (30.0, "30°"), (60.0, "60°")], 60.0)}
 {time_grid(motion_top, motion_height)}
 <polyline points="{polyline(rows, 'target_angle_deg', motion_top, motion_height, 0.0, 60.0, 2)}" class="target"/>
@@ -190,7 +190,7 @@ def render(rows: list[dict[str, str]]) -> str:
 <rect x="326" y="963" width="284" height="58" rx="13" class="card"/>
 <text x="344" y="986" class="metric-label">HYBRID-ASSISTED PEAK</text><text x="344" y="1011" class="metric">{assisted_peak:.1f}°</text>
 <rect x="628" y="963" width="284" height="58" rx="13" class="card"/>
-<text x="646" y="986" class="metric-label">SIMULATED TRACKING IMPROVEMENT</text><text x="646" y="1011" class="metric">{reduction:.1f}%</text>
+<text x="646" y="986" class="metric-label">MODELED TRACKING IMPROVEMENT</text><text x="646" y="1011" class="metric">{reduction:.1f}%</text>
 <rect x="930" y="963" width="286" height="58" rx="13" class="card"/>
 <text x="948" y="986" class="metric-label">FINAL SAFETY STATE</text><text x="948" y="1011" class="metric">READY · NO FAULT</text>
 </svg>'''

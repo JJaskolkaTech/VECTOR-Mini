@@ -54,7 +54,7 @@ Or run directly:
 PYTHONPATH=src python3 -m vector_mini.cli --scenario timeout --fast
 ```
 
-The fault demo freezes the simulated joint during flexion. After five seconds without completing the movement, the safety gate latches `POSITION_TIMEOUT`, switches the state to `E_STOP`, and forces the actuator request to zero.
+The fault demo freezes the virtual joint during flexion. After five seconds without completing the movement, the safety gate latches `POSITION_TIMEOUT`, switches the state to `E_STOP`, and forces the actuator request to zero.
 
 ```text
 Controller State:  E_STOP
@@ -71,15 +71,17 @@ Fault:             POSITION_TIMEOUT
 
 The demo compares an illustrative reference sEMG pattern with a weaker, delayed, variable pattern. VECTOR uses a personalized calibration, RMS envelope, trend evidence, dwell time, and hysteresis to qualify movement intent. A virtual electrode layer checks normalized contact and placement scores; a dose controller ramps and bounds a unitless stimulation request; a separate bounded KINETIC command contributes mechanical assistance.
 
-The default simulated finger reaches **20.15° unassisted** and **53.31° with hybrid assistance**, with a **46.3% reduction in tracking RMSE**. These are software-model results, not predicted patient outcomes.
+The default virtual finger reaches **20.15° unassisted** and **53.31° with hybrid assistance**, with a **46.3% reduction in tracking RMSE**. These are modeled-system results rather than predicted patient outcomes.
 
 `make rehab-fault-demo` injects virtual electrode-contact loss. The gate latches `ELECTRODE_CONTACT` and immediately forces both stimulation and KINETIC commands to zero.
 
 Important distinction: sEMG senses electrical activity associated with muscle activation; it does not record the brain directly and does not stimulate tissue. The virtual NMES/FES channel is a separate, safety-gated output. See the [Rehabilitation Intent Lab design note](docs/rehabilitation-intent-lab.md) for terminology, evidence, limitations, and the responsible path toward benchtop and clinical research.
 
+For the public demonstration narrative, shot sequence, and exact evidence-stage language, see [The Signal Before Motion storyboard](docs/demo-storyboard.md).
+
 ## Engineering features
 
-- 50 Hz software-in-the-loop simulation
+- 50 Hz software-in-the-loop model
 - Deterministic finite-state motion control
 - Bounded proportional-derivative controller
 - Joint position and velocity feedback
@@ -92,7 +94,7 @@ Important distinction: sEMG senses electrical activity associated with muscle ac
 - Personalized RMS-envelope and trend-based intent estimation
 - Virtual electrode contact and placement qualification
 - Normalized dose ramp, exposure timeout, and dual-output safety gate
-- Hybrid virtual NMES/FES and KINETIC finger-motion simulation
+- Hybrid virtual NMES/FES and KINETIC finger-motion model
 - Contact-loss, placement, signal, and E-stop fault injection
 - CSV telemetry export
 - Standard-library automated test suite
@@ -110,7 +112,7 @@ See [the safety model](docs/safety-model.md), [architecture notes](docs/architec
 
 ## Roadmap
 
-- **v0.1 — Software-in-the-loop:** Python controller, joint simulation, fault injection, tests
+- **v0.1 — Software-in-the-loop:** Python controller, virtual joint model, fault injection, tests
 - **v0.1.1 — Rehabilitation intent lab:** synthetic sEMG, personalized intent confidence, abstract electrode checks, normalized virtual stimulation, hybrid assistance
 - **v0.2 — Hardware-in-the-loop:** deterministic control on Teensy 4.0; Python telemetry console
 - **v0.3 — Instrumented bench:** electrode/skin phantom, electrical load measurement, potentiometer/encoder feedback, and a current-limited actuator
