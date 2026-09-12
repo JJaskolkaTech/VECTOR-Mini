@@ -35,3 +35,30 @@ This is an independent educational testbed—not production medical hardware—b
 4. Pause on `POSITION_TIMEOUT`, `E_STOP`, `LOCKED`, and motor command `0%` (8 seconds).
 5. End on the passing automated test suite (5 seconds).
 
+## v0.1.1 rehabilitation-intent follow-up post
+
+I’ve expanded VECTOR Mini with a synthetic rehabilitation-intent lab that makes the proposed SYNAPSE → VECTOR → KINETIC loop observable and testable.
+
+The new software-in-the-loop demo compares an illustrative reference surface-EMG pattern with a weaker, delayed, variable activation pattern. SYNAPSE acquires and conditions the signal; VECTOR uses a personalized calibration, RMS envelope, trend evidence, dwell time, and hysteresis to qualify movement intent.
+
+Once intent is qualified, an independent safety gate can authorize two separate simulated outputs:
+
+- a ramp-limited, normalized virtual NMES/FES channel; and
+- a bounded KINETIC mechanical-assistance command.
+
+The default virtual finger reaches 20.15° unassisted and 53.31° with hybrid assistance, reducing tracking RMSE by 46.3% in the software model.
+
+The fault behavior is just as important as the nominal result. Invalid signal data, inadequate virtual electrode contact, invalid virtual placement, excessive assistance duration, or E-stop immediately force both outputs to zero and latch the safety state.
+
+This is synthetic data—not a patient recording, treatment result, or human-use stimulation protocol. The repository contains no anatomical placement directions or electrical dose parameters. The next responsible milestone is instrumented electrode/skin-phantom and electrical-load testing, followed only later by properly supervised clinical and regulatory research.
+
+#RehabilitationEngineering #Robotics #SurfaceEMG #ControlSystems #EmbeddedSystems #Python #WearableRobotics
+
+## Suggested v0.1.1 video sequence
+
+1. Open the rehabilitation-intent SVG and identify SYNAPSE, VECTOR, the safety gate, and the two virtual outputs.
+2. Point out the reference and impaired-pattern sEMG traces.
+3. Show intent crossing its qualification threshold and both outputs ramping from zero.
+4. Compare unassisted and hybrid-assisted finger trajectories.
+5. Run `make rehab-fault-demo` and pause on `ELECTRODE_CONTACT`, `E_STOP`, and both commands at zero.
+6. End on all 24 automated tests passing.

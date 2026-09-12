@@ -14,7 +14,23 @@
 | Reset | Reset fails away from rest and succeeds within tolerance |
 | Output bounds | Requested commands remain in the range -100% to +100% |
 
-Run the entire acceptance suite with:
+### Rehabilitation-intent acceptance criteria
+
+| Test area | Acceptance criterion |
+| --- | --- |
+| Repeatability | Fixed seed generates identical synthetic sEMG telemetry |
+| Signal distinction | Reference envelope peak exceeds the impaired-pattern peak |
+| Personalized intent | Residual activation qualifies only after onset and dwell |
+| Pre-intent lockout | Virtual stimulation and KINETIC commands remain zero before qualification |
+| Output limits | Both normalized assistance channels stay within independent bounds |
+| Dose ramp | Positive stimulation-command changes do not exceed the configured slew rate |
+| Contact fault | Contact loss latches `ELECTRODE_CONTACT` and immediately zeros both channels |
+| Placement fault | Invalid alignment never authorizes either output |
+| Signal fault | Invalid data latches `SIGNAL_INVALID` and zeros both outputs |
+| External E-stop | E-stop is immediate, latched, and common to both outputs |
+| Movement outcome | Assisted simulated tracking outperforms the same unassisted attempt |
+
+Run the entire 24-test acceptance suite with:
 
 ```bash
 make test
@@ -28,4 +44,3 @@ make test
 - Establish conservative current, speed, force, and travel limits.
 - Test every fault with no person wearing or contacting the mechanism.
 - Require a witnessed pre-use checklist before any human-adjacent test.
-

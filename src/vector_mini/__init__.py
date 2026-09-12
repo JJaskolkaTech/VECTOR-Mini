@@ -3,5 +3,4 @@
 from .system import VectorMiniSystem
 
 __all__ = ["VectorMiniSystem"]
-__version__ = "0.1.0"
-
+__version__ = "0.1.1"
