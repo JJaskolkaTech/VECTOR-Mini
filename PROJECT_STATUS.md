@@ -17,8 +17,8 @@
 - Personalized intent confidence qualified the impaired-pattern attempt at 1.252 seconds.
 - Both virtual stimulation and KINETIC outputs remained zero until intent qualification.
 - Virtual contact loss, invalid placement, invalid signal, and external E-stop each latched a fault and forced both outputs to zero.
-- The nominal virtual finger model reached 20.15° unassisted and 53.31° with hybrid assistance, reducing simulated tracking RMSE by 46.3%.
+- The nominal virtual finger model reached 20.15° unassisted and 53.31° with hybrid assistance, reducing modeled tracking RMSE by 46.3%.
 
-## Honest scope statement
+## Evidence stage
 
-Version 0.1.1 proves software architecture, simulation, safety logic, automated testing, telemetry, and documentation. It does not claim physical closed-loop operation, safe human stimulation, biological repair, or clinical efficacy. Hardware-in-the-loop control on a Teensy 4.0 and instrumented phantom/load testing remain future milestones.
+Version 0.1.1 establishes software architecture, modeled behavior, safety logic, automated testing, telemetry, and documentation. Its evidence comes from synthetic signals, normalized commands, and virtual plant response. The next evidence milestones are hardware-in-the-loop control on a Teensy 4.0, real sEMG acquisition, and instrumented phantom/load testing; biological and clinical questions belong to later supervised studies.
