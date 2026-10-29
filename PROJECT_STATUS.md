@@ -22,3 +22,10 @@
 ## Evidence stage
 
 Version 0.1.1 establishes software architecture, modeled behavior, safety logic, automated testing, telemetry, and documentation. Its evidence comes from synthetic signals, normalized commands, and virtual plant response. The next evidence milestones are hardware-in-the-loop control on a Teensy 4.0, real sEMG acquisition, and instrumented phantom/load testing; biological and clinical questions belong to later supervised studies.
+
+## Re-verification — October 28, 2026
+
+- Full automated suite re-run on the current tree: 24 of 24 tests passed.
+- Nominal scenario re-run: completed FLEX, HOLD, EXTEND, and RESET with the safety gate at PASS and no fault.
+- Frozen-joint fault injection re-run: POSITION_TIMEOUT latched, controller state E_STOP, motor command forced to 0.0%, safety gate LOCKED.
+- No code changes in this entry — a standing re-verification that the published v0.1.1 evidence still reproduces exactly.
