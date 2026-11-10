@@ -29,3 +29,11 @@ Version 0.1.1 establishes software architecture, modeled behavior, safety logic,
 - Nominal scenario re-run: completed FLEX, HOLD, EXTEND, and RESET with the safety gate at PASS and no fault.
 - Frozen-joint fault injection re-run: POSITION_TIMEOUT latched, controller state E_STOP, motor command forced to 0.0%, safety gate LOCKED.
 - No code changes in this entry — a standing re-verification that the published v0.1.1 evidence still reproduces exactly.
+
+## Re-verification — November 9, 2026
+
+- Full automated suite re-run on the current tree: 24 of 24 tests passed.
+- Nominal scenario re-run: completed FLEX, HOLD, EXTEND, and RESET with the safety gate at PASS and no fault.
+- Frozen-joint fault injection re-run: POSITION_TIMEOUT latched, controller state E_STOP, motor command forced to 0.0%, safety gate LOCKED.
+- Rehabilitation-intent demos re-run end to end, including the contact-fault scenario (ELECTRODE_CONTACT latched, both outputs zeroed).
+- No code changes in this entry — a standing re-verification that the published v0.1.1 evidence still reproduces exactly.
